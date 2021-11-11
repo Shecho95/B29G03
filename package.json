@@ -1,0 +1,38 @@
+{
+  "name": "vulnerabilidad",
+  "version": "1.0.0",
+  "description": "pruebas con sqlite",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shecho95/B29G03.git"
+  },
+  "author": "Sergio Moreno",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Shecho95/B29G03/issues"
+  },
+  "homepage": "https://github.com/Shecho95/B29G03#readme",
+  "dependencies": {
+    "bluebird": "^3.7.2",
+    "consign": "^0.1.6",
+    "cors": "^2.8.5",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "reflect-metadata": "^0.1.13",
+    "sequelize": "^6.9.0",
+    "sqlite3": "^5.0.2",
+    "typeorm": "^0.2.39"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.16.0",
+    "@babel/core": "^7.16.0",
+    "@babel/node": "^7.16.0",
+    "@babel/preset-env": "^7.16.0",
+    "@types/node": "^16.11.7",
+    "nodemon": "^2.0.15"
+  }
+}
