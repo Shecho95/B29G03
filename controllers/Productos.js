@@ -1,11 +1,19 @@
+const Producto = require('../models/Producto');
+
 const productsGet = (req, res) => {
     res.json({ msg: "get Products controller" });
 }
 
 const productsPost = (req, res) => {
-    const { name, author } = req.body;
+   // const {Nombre, Descripcion, Categoria, Precio} = req.body;
 
-    res.json({ msg: "Post Products controller", name, author });
+    Producto.create(req.body)
+      .then(result => res.json(result))
+      .catch(error => {
+        res.status(412).json({msg: error.message});
+      });
+       
+    //res.json({ msg: "Post Products controller", Nombre});
 }
 
 const productsGetBySKU = (req, res) => {

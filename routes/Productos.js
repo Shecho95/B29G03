@@ -8,7 +8,7 @@ const {
     productsGetBySKU, 
     productsPut, 
     productsDelete
-} = require('../controllers/producto_controllador')
+} = require('../controllers/Productos')
 
 router.get('/', productsGet);
 
