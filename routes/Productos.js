@@ -1,5 +1,4 @@
 const express = require('express')
-
 const router = express.Router()
 
 const { 
@@ -18,7 +17,6 @@ router.get('/:sku', productsGetBySKU);
 
 router.put('/:sku', productsPut);
 
-router.delete(':sku', productsDelete);
-
+router.delete('/:sku', productsDelete);
 
 module.exports = router

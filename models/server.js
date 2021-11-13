@@ -1,8 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 
-
-const { db } = require('../db')
+const {sequelize}  = require('../database/db')
 
 class Server {
     
@@ -10,15 +9,24 @@ class Server {
         this.app = express();
         this.port = 3000;
         this.productsPath = '/api/productos';
-
+        this.usersPath = '/api/usuarios';
         this.initDB();
         this.middlewares();
         this.routes();
     }
 
     initDB(){
-        //const db= require('../db');
-        //this.app.use(db, require('../db'));
+        
+        (async () => {
+            //await sequelize.sync({ force: true });
+            await sequelize.sync();
+            try {
+              await sequelize.authenticate();
+              console.log('Connection has been established successfully.');
+            } catch (error) {
+              console.error('Unable to connect to the database:', error);
+            }
+          })();
      }
 
     middlewares(){ 
@@ -30,6 +38,8 @@ class Server {
 
     routes(){
         this.app.use(this.productsPath, require('../routes/Productos'));
+        this.app.use(this.usersPath, require('../routes/Usuarios'));
+
     }
 
     listen(){
