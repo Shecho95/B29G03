@@ -1,8 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 
-
-const { db } = require('../db')
+const {sequelize}  = require('../database/db')
 
 class Server {
     
@@ -17,8 +16,17 @@ class Server {
     }
 
     initDB(){
-        //const db= require('../db');
-        //this.app.use(db, require('../db'));
+        
+        (async () => {
+            //await sequelize.sync({ force: true });
+            await sequelize.sync();
+            try {
+              await sequelize.authenticate();
+              console.log('Connection has been established successfully.');
+            } catch (error) {
+              console.error('Unable to connect to the database:', error);
+            }
+          })();
      }
 
     middlewares(){ 

@@ -5,7 +5,7 @@ const productsGet = (req, res) => {
 }
 
 const productsPost = (req, res) => {
-   // const {Nombre, Descripcion, Categoria, Precio} = req.body;
+    //const {Nombre, Descripcion, Categoria, Precio} = req.body;
 
     Producto.create(req.body)
       .then(result => res.json(result))
@@ -13,7 +13,7 @@ const productsPost = (req, res) => {
         res.status(412).json({msg: error.message});
       });
        
-    //res.json({ msg: "Post Products controller", Nombre});
+    //res.json({ msg: "Post Products controller", Producto});
 }
 
 const productsGetBySKU = (req, res) => {
