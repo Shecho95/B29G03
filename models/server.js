@@ -9,7 +9,7 @@ class Server {
         this.app = express();
         this.port = 3000;
         this.productsPath = '/api/productos';
-
+        this.usersPath = '/api/usuarios';
         this.initDB();
         this.middlewares();
         this.routes();
@@ -38,6 +38,8 @@ class Server {
 
     routes(){
         this.app.use(this.productsPath, require('../routes/Productos'));
+        this.app.use(this.usersPath, require('../routes/Usuarios'));
+
     }
 
     listen(){
